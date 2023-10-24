@@ -1,1 +1,81 @@
+:root {
+  --zoom: 120%;
+  --position-x: 0px;
+  --position-y: 0px;
+  --transition-time: 0.2s;
+}
+
+.Binoculars {
+  background-image: url("https://i.ibb.co/84Q9KnX/view.webp"); /* change the image here */
+  background-size: var(--zoom);
+  background-position: calc(50% + var(--position-x))
+    calc(50% + var(--position-y));
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  transition: var(--transition-time);
+  mask-image: radial-gradient(
+      circle at 33% 50%,
+      black 33%,
+      rgba(0, 0, 0, 0) 34%
+    ),
+    radial-gradient(circle at 66% 50%, black 33%, rgba(0, 0, 0, 0) 34%);
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.blurAnimation {
+  animation: autoFocusAnimation 2s forwards;
+}
+
+@keyframes autoFocusAnimation {
+  0%,
+  100% {
+    filter: blur(0);
+  }
+  40%,
+  50% {
+    filter: blur(10px);
+  }
+  60% {
+    filter: blur(4px);
+  }
+  70% {
+    filter: blur(2px);
+  }
+  80% {
+    filter: blur(4px);
+  }
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #eee;
+  font-weight: 700;
+  opacity: 0.6;
+}
 
